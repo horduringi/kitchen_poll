@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<%  for u in @users %>
+<%= u.name + ": " + Masterchef.where(votefor: u.id).count.inspect %>
+<br>
+<%  end %>

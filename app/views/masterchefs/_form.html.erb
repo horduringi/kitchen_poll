@@ -1,0 +1,25 @@
+<%= form_for(@masterchef) do |f| %>
+  <% if @masterchef.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@masterchef.errors.count, "error") %> prohibited this masterchef from being saved:</h2>
+
+      <ul>
+      <% @masterchef.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Ég er:<br>
+    <%= f.select :voter, options_from_collection_for_select(User.all, :id, :name) %>
+  </div>
+  <div class="field">
+    Mitt atkvæði fær:<br>
+    <%= f.select :votefor, options_from_collection_for_select(User.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Kjósa "%>
+  </div>
+<% end %>

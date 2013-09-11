@@ -1,0 +1,2 @@
+module MasterchefsHelper
+end

@@ -1,0 +1,29 @@
+<h1>Listing masterchefs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Voter</th>
+      <th>Votefor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @masterchefs.each do |masterchef| %>
+      <tr>
+        <td><%= masterchef.voter %></td>
+        <td><%= masterchef.votefor %></td>
+        <td><%= link_to 'Show', masterchef %></td>
+        <td><%= link_to 'Edit', edit_masterchef_path(masterchef) %></td>
+        <td><%= link_to 'Destroy', masterchef, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Masterchef', new_masterchef_path %>
